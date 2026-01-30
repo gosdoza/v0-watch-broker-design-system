@@ -43,6 +43,7 @@ const mockQuotes = [
   {
     id: "q1",
     dealerName: "永恆時計",
+    dealerLocation: "台北市",
     dealerAvatar: "永",
     amount: 430000,
     timeAgo: "2 小時前",
@@ -51,6 +52,7 @@ const mockQuotes = [
   {
     id: "q2",
     dealerName: "冠希名錶",
+    dealerLocation: "台中市",
     dealerAvatar: "冠",
     amount: 425000,
     timeAgo: "5 小時前",
@@ -59,6 +61,7 @@ const mockQuotes = [
   {
     id: "q3",
     dealerName: "鐘錶王國",
+    dealerLocation: "高雄市",
     dealerAvatar: "鐘",
     amount: 420000,
     timeAgo: "1 天前",
@@ -225,44 +228,52 @@ export default function SellerListingDetailPage() {
             <div className="space-y-4">
               {mockQuotes.map((quote) => (
                 <GlassCard key={quote.id} padding="lg" className="hover:border-[rgba(212,175,55,0.3)] transition-colors">
-                  {/* Quote Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="size-10 rounded-full bg-gradient-to-br from-[#1A1A1A] to-[#0A0A0A] border border-[rgba(255,255,255,0.1)] flex items-center justify-center">
-                        <span className="text-sm font-medium text-[#D4AF37]">
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+                    {/* Left - Dealer Info */}
+                    <div className="flex items-start gap-3 flex-1">
+                      {/* Avatar */}
+                      <div className="size-12 shrink-0 rounded-full bg-gradient-to-br from-[#1A1A1A] to-[#0A0A0A] border border-[rgba(212,175,55,0.3)] flex items-center justify-center">
+                        <span className="text-base font-medium text-[#D4AF37]">
                           {quote.dealerAvatar}
                         </span>
                       </div>
-                      <div>
-                        <p className="font-medium text-[#E5E5E5]">{quote.dealerName}</p>
-                        <p className="text-xs text-[#64748B]">{quote.timeAgo}</p>
+                      {/* Dealer Name & Location Group */}
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium text-[#E5E5E5] text-lg">{quote.dealerName}</p>
+                        <div className="flex items-center gap-1.5 mt-1">
+                          <MapPin className="size-3.5 text-[#D4AF37] shrink-0" />
+                          <span className="text-sm text-[#94A3B8]">{quote.dealerLocation}</span>
+                        </div>
+                        <p className="text-xs text-[#64748B] mt-1">{quote.timeAgo}</p>
                       </div>
                     </div>
+
+                    {/* Right - Offer Amount (Most Prominent) */}
+                    <div className="sm:text-right">
+                      <p className="text-xs text-[#64748B] mb-1">出價金額</p>
+                      <p className="font-serif text-2xl sm:text-3xl text-[#D4AF37]">
+                        NT$ {formatPrice(quote.amount)}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Status & Action Row */}
+                  <div className="flex items-center justify-between mt-5 pt-4 border-t border-[rgba(255,255,255,0.05)]">
                     <div className="flex items-center gap-2 text-xs text-[#64748B]">
                       <Clock className="size-3.5" />
                       {quote.status}
                     </div>
+                    <LuxuryButton 
+                      variant="primary" 
+                      size="sm"
+                      asChild
+                    >
+                      <Link href={`/negotiation/${quote.id}`}>
+                        <MessageSquare className="size-4" />
+                        查看議價
+                      </Link>
+                    </LuxuryButton>
                   </div>
-
-                  {/* Quote Body */}
-                  <div className="mb-4">
-                    <p className="text-sm text-[#64748B] mb-1">出價金額</p>
-                    <p className="font-serif text-2xl text-[#D4AF37]">
-                      NT$ {formatPrice(quote.amount)}
-                    </p>
-                  </div>
-
-                  {/* Quote Footer */}
-                  <LuxuryButton 
-                    variant="primary" 
-                    className="w-full"
-                    asChild
-                  >
-                    <Link href={`/negotiation/${quote.id}`}>
-                      <MessageSquare className="size-4" />
-                      查看議價
-                    </Link>
-                  </LuxuryButton>
                 </GlassCard>
               ))}
             </div>
