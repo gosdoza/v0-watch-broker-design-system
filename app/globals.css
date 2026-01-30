@@ -1,0 +1,213 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* =============================================
+   Watch Broker Platform - Neo-Luxury Design System
+   Taiwan C2B Marketplace
+   ============================================= */
+
+:root {
+  /* Neo-Luxury Base Colors */
+  --background: #050505;
+  --foreground: #F5F5F5;
+  
+  /* Card - Glassmorphism Base */
+  --card: rgba(255, 255, 255, 0.03);
+  --card-foreground: #F5F5F5;
+  
+  /* Popover */
+  --popover: rgba(15, 15, 15, 0.95);
+  --popover-foreground: #F5F5F5;
+  
+  /* Primary - Metallic Gold */
+  --primary: #C9A962;
+  --primary-foreground: #050505;
+  --gold-light: #E8D5A3;
+  --gold-dark: #9A7B3C;
+  
+  /* Secondary - Slate Gray */
+  --secondary: #64748B;
+  --secondary-foreground: #F5F5F5;
+  
+  /* Muted */
+  --muted: #1A1A1A;
+  --muted-foreground: #94A3B8;
+  
+  /* Accent */
+  --accent: rgba(201, 169, 98, 0.1);
+  --accent-foreground: #C9A962;
+  
+  /* Destructive */
+  --destructive: #DC2626;
+  --destructive-foreground: #FECACA;
+  
+  /* Borders & Inputs */
+  --border: rgba(100, 116, 139, 0.3);
+  --input: rgba(100, 116, 139, 0.2);
+  --ring: #C9A962;
+  
+  /* Line Brand Color */
+  --line-green: #06C755;
+  --line-green-hover: #05B04A;
+  
+  /* Status Colors */
+  --status-active: #22C55E;
+  --status-negotiating: #3B82F6;
+  --status-reserved: #F97316;
+  --status-sold: #6B7280;
+  
+  /* Charts */
+  --chart-1: #C9A962;
+  --chart-2: #64748B;
+  --chart-3: #22C55E;
+  --chart-4: #3B82F6;
+  --chart-5: #F97316;
+  
+  --radius: 0.5rem;
+  
+  /* Sidebar */
+  --sidebar: #0A0A0A;
+  --sidebar-foreground: #F5F5F5;
+  --sidebar-primary: #C9A962;
+  --sidebar-primary-foreground: #050505;
+  --sidebar-accent: rgba(201, 169, 98, 0.1);
+  --sidebar-accent-foreground: #C9A962;
+  --sidebar-border: rgba(100, 116, 139, 0.2);
+  --sidebar-ring: #C9A962;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', 'Playfair Display Fallback', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* Custom Theme Colors */
+  --color-gold: var(--primary);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-line: var(--line-green);
+  --color-line-hover: var(--line-green-hover);
+  --color-status-active: var(--status-active);
+  --color-status-negotiating: var(--status-negotiating);
+  --color-status-reserved: var(--status-reserved);
+  --color-status-sold: var(--status-sold);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background-color: rgba(201, 169, 98, 0.3);
+    color: #F5F5F5;
+  }
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+  }
+}
+
+@layer utilities {
+  /* Gold Gradient */
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--primary) 50%, var(--gold-dark) 100%);
+  }
+  
+  /* Gold Text Gradient */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--primary) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Glassmorphism Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+  }
+  
+  /* Glow Effects */
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(201, 169, 98, 0.3);
+  }
+  
+  .glow-gold-strong {
+    box-shadow: 0 0 30px rgba(201, 169, 98, 0.5);
+  }
+  
+  /* Elegant Border */
+  .border-elegant {
+    border: 1px solid rgba(100, 116, 139, 0.3);
+  }
+  
+  /* Hover Glow Animation */
+  .hover-glow {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 25px rgba(201, 169, 98, 0.4);
+    transform: translateY(-2px);
+  }
+}
