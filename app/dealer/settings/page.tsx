@@ -16,11 +16,8 @@ import {
   XCircle,
   Target,
   X,
-  Wallet,
-  Crown,
   Bell,
-  CheckCircle2,
-  Sparkles
+  CheckCircle2
 } from "lucide-react"
 import { GlassCard } from "@/components/ui/glass-card"
 import { LuxuryButton } from "@/components/ui/luxury-button"
@@ -320,98 +317,60 @@ export default function DealerSettingsPage() {
           </div>
         </GlassCard>
 
-        {/* Section 3: Account & Subscription */}
-        <GlassCard variant="gold" padding="lg">
+        {/* Section 3: Notification Settings (Standalone) */}
+        <GlassCard padding="lg">
           <div className="flex items-center gap-3 mb-6">
-            <div className="size-10 rounded-lg bg-gradient-to-br from-[#E8D5A3] to-[#9A7B3C] flex items-center justify-center">
-              <Crown className="size-5 text-[#050505]" />
+            <div className="size-10 rounded-lg bg-[rgba(6,199,85,0.1)] flex items-center justify-center">
+              <Bell className="size-5 text-[#06C755]" />
             </div>
             <div>
-              <h2 className="font-serif text-lg text-[#F5F5F5]">帳戶與訂閱方案</h2>
-              <p className="text-xs text-[#C9A962]">您目前的訂閱狀態與權益</p>
-            </div>
-          </div>
-
-          {/* Pro Plan Card */}
-          <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#1A1510] to-[#0A0A0A] border border-[rgba(201,169,98,0.4)] p-5">
-            {/* Decorative corner glow */}
-            <div className="absolute -top-12 -right-12 size-32 bg-gradient-to-br from-[#C9A962]/20 to-transparent rounded-full blur-2xl" />
-            
-            <div className="relative">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <Sparkles className="size-5 text-[#C9A962]" />
-                  <span className="font-serif text-lg text-[#E8D5A3]">Pro Dealer Plan</span>
-                </div>
-                <span className="px-3 py-1 rounded-full bg-gradient-to-r from-[#E8D5A3] via-[#C9A962] to-[#9A7B3C] text-[#050505] text-xs font-semibold">
-                  啟用中
-                </span>
-              </div>
-
-              <ul className="space-y-2 mb-5">
-                <li className="flex items-center gap-2 text-sm text-[#94A3B8]">
-                  <CheckCircle2 className="size-4 text-[#C9A962]" />
-                  無限制報價次數
-                </li>
-                <li className="flex items-center gap-2 text-sm text-[#94A3B8]">
-                  <CheckCircle2 className="size-4 text-[#C9A962]" />
-                  優先查看新上架商品
-                </li>
-                <li className="flex items-center gap-2 text-sm text-[#94A3B8]">
-                  <CheckCircle2 className="size-4 text-[#C9A962]" />
-                  專屬客服支援
-                </li>
-              </ul>
-
-              <div className="flex items-center justify-between pt-4 border-t border-[rgba(201,169,98,0.2)]">
-                <div className="flex items-center gap-2">
-                  <Wallet className="size-4 text-[#64748B]" />
-                  <span className="text-sm text-[#64748B]">下次扣款</span>
-                </div>
-                <span className="text-sm text-[#E5E5E5]">2026/02/28</span>
-              </div>
+              <h2 className="font-serif text-lg text-[#F5F5F5]">通知偏好設定</h2>
+              <p className="text-xs text-[#64748B]">管理您的即時通知設定</p>
             </div>
           </div>
 
           {/* LINE Notify Toggle */}
-          <div className="mt-6 pt-5 border-t border-[rgba(201,169,98,0.2)]">
-            <div className="flex items-center gap-3 mb-4">
-              <Bell className="size-5 text-[#C9A962]" />
-              <span className="font-medium text-[#F5F5F5]">即時通知設定</span>
-            </div>
-
-            <div className="flex items-center justify-between p-4 rounded-lg bg-[#0A0A0A]/50 border border-[rgba(100,116,139,0.2)]">
-              <div className="flex items-center gap-3">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="#06C755"
-                  className="size-6"
-                  aria-hidden="true"
-                >
-                  <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
-                </svg>
-                <div>
-                  <p className="text-sm font-medium text-[#E5E5E5]">新上架商品即時通知</p>
-                  <p className="text-xs text-[#64748B]">當有符合偏好的新錶款上架時立即通知</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                role="switch"
-                aria-checked={newListingAlerts}
-                onClick={() => setNewListingAlerts(!newListingAlerts)}
-                className={`relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A962] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${
-                  newListingAlerts ? "bg-[#06C755]" : "bg-[rgba(100,116,139,0.3)]"
-                }`}
+          <div className="flex items-center justify-between p-4 rounded-lg bg-[#0A0A0A] border border-[rgba(100,116,139,0.3)]">
+            <div className="flex items-center gap-4">
+              <svg
+                viewBox="0 0 24 24"
+                fill="#06C755"
+                className="size-8 shrink-0"
+                aria-hidden="true"
               >
-                <span
-                  className={`pointer-events-none block size-5 rounded-full bg-white shadow-lg ring-0 transition-transform ${
-                    newListingAlerts ? "translate-x-5" : "translate-x-0"
-                  }`}
-                />
-              </button>
+                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314" />
+              </svg>
+              <div>
+                <p className="text-sm font-medium text-[#F5F5F5]">新上架商品即時通知</p>
+                <p className="text-sm text-[#64748B] mt-1 leading-relaxed">
+                  當有賣家上架符合您採購偏好的錶款時，立即透過 LINE 推播通知您
+                </p>
+              </div>
             </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={newListingAlerts}
+              onClick={() => setNewListingAlerts(!newListingAlerts)}
+              className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A962] focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${
+                newListingAlerts ? "bg-[#06C755]" : "bg-[rgba(100,116,139,0.3)]"
+              }`}
+            >
+              <span
+                className={`pointer-events-none block size-5 rounded-full bg-white shadow-lg ring-0 transition-transform ${
+                  newListingAlerts ? "translate-x-5" : "translate-x-0.5"
+                }`}
+              />
+            </button>
           </div>
+
+          {/* Status indicator */}
+          {newListingAlerts && (
+            <div className="mt-4 flex items-center gap-2 text-sm text-[#06C755]">
+              <CheckCircle2 className="size-4" />
+              <span>已啟用 LINE 即時通知</span>
+            </div>
+          )}
         </GlassCard>
 
         {/* Save Button */}
